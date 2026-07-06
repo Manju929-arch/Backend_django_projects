@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Update Profile | Portfolio{% endblock %}
+{% block content %}
+<section class="section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 p-4">
+                    <h2 class="section-title">Update Profile</h2>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ user_form.non_field_errors }}
+                        <div class="mb-3">
+                            {{ user_form.username.label_tag }}
+                            {{ user_form.username }}
+                            {{ user_form.username.errors }}
+                        </div>
+                        <div class="mb-3">
+                            {{ user_form.email.label_tag }}
+                            {{ user_form.email }}
+                            {{ user_form.email.errors }}
+                        </div>
+                        <div class="mb-3">
+                            {{ profile_form.bio.label_tag }}
+                            {{ profile_form.bio }}
+                            {{ profile_form.bio.errors }}
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                {{ profile_form.location.label_tag }}
+                                {{ profile_form.location }}
+                                {{ profile_form.location.errors }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ profile_form.phone.label_tag }}
+                                {{ profile_form.phone }}
+                                {{ profile_form.phone.errors }}
+                            </div>
+                        </div>
+                        <div class="row g-3 mt-3">
+                            <div class="col-md-6">
+                                {{ profile_form.website.label_tag }}
+                                {{ profile_form.website }}
+                                {{ profile_form.website.errors }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ profile_form.image.label_tag }}
+                                {{ profile_form.image }}
+                                {{ profile_form.image.errors }}
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg mt-4" type="submit">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        {% for i in product %}
+        <div style="background-color: red;color: yellow;border: 2px solid black;">
+            {{i.p_name}} <br>
+            {{i.p_manufacture}} <br>
+            {{i.p_exp}} <br>
+            {{i.p_email}} <br>
+        {% endfor %}
+            
+        </div>
+    </center>
+</body>
+</html>

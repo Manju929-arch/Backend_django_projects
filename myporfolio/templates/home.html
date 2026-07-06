@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Home | Portfolio{% endblock %}
+{% block content %}
+<section id="home" class="hero-section text-white py-5 bg-dark position-relative">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <span class="badge bg-primary mb-3">Hello, I am</span>
+                <h1 class="display-4 fw-bold">Manju Kumar</h1>
+                <p class="lead mb-4">Full Stack Django Developer building responsive portfolio experiences with modern design.</p>
+                <div class="typed-text mb-4" data-text='["Web Developer", "Django Specialist", "UI/UX Enthusiast"]'></div>
+                <a class="btn btn-primary btn-lg me-2" href="{% url 'resume' %}">Download Resume</a>
+                <a class="btn btn-outline-light btn-lg" href="{% url 'contact' %}">Hire Me</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="{% static 'images/profile.svg' %}" alt="Profile" class="img-fluid rounded-circle shadow-lg hero-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h3>Skills</h3>
+                    <p class="mb-0">A curated selection of technical expertise across backend, frontend, and developer tools.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h3>Projects</h3>
+                    <p class="mb-0">Real projects with live demos and GitHub repositories. Built using Django, Bootstrap, and modern workflows.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm p-4 h-100">
+                    <h3>Contact</h3>
+                    <p class="mb-0">Get in touch for collaborations, freelance work, or software development opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title">Featured Projects</h2>
+            <a href="{% url 'projects' %}" class="btn btn-link">View all</a>
+        </div>
+        <div class="row gy-4">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card project-card h-100 shadow-sm">
+                    <img src="{% if project.image %}{{ project.image.url }}{% else %}{% static 'images/project-placeholder.jpg' %}{% endif %}" class="card-img-top" alt="{{ project.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description|truncatechars:120 }}</p>
+                        <p class="text-muted">{{ project.technologies }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            {% if project.github_url %}<a href="{{ project.github_url }}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>{% endif %}
+                            {% if project.demo_url %}<a href="{{ project.demo_url }}" class="btn btn-primary btn-sm" target="_blank">Live Demo</a>{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section bg-dark text-white py-5">
+    <div class="container text-center">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="mb-4">Have a project idea? Send a message and let’s build something great together.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'contact' %}">Send Message</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}About | Portfolio{% endblock %}
+{% block content %}
+<section class="section py-5">
+    <div class="container">
+        <div class="row align-items-center gy-4">
+            <div class="col-lg-5 text-center">
+                <img src="{% static 'images/profile.png' %}" alt="Profile" class="img-fluid rounded-circle shadow-lg about-image">
+            </div>
+            <div class="col-lg-7">
+                <h2 class="section-title">About Me</h2>
+                <p class="lead">I am a Full Stack Django developer with a passion for clean architecture, modern UI, and scalable web applications.</p>
+                <p>With experience in Django, HTML, CSS, JavaScript, Bootstrap, and REST APIs, I build polished digital experiences that are responsive and accessible.</p>
+                <div class="row gy-3 mt-4">
+                    <div class="col-md-6">
+                        <div class="card p-4 shadow-sm">
+                            <h5>Education</h5>
+                            <p>Bachelor of Science in Computer Science</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-4 shadow-sm">
+                            <h5>Experience</h5>
+                            <p>3+ years building web applications with Django and JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h5>Career Objective</h5>
+                    <p>To create reliable, user-friendly web applications and help businesses bring their ideas to life with clean, maintainable code.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

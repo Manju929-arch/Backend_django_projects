@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        {% for i in prod %}
+        <div class="child">
+            <h2><span>id:</span></h2>
+            <h2 id="prod"><span>{{i.id}}</span></h2>
+            <h2><span>price:</span>{{i.price}}</h2>
+            <h2><span>product discription</span>{{i.discription}}</h2>
+            <h2><img src="{{i.image.url}}" alt=""></h2>
+
+        </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

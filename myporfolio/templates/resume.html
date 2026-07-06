@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Resume | Portfolio{% endblock %}
+{% block content %}
+<section class="section bg-light py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <h2 class="section-title">Resume</h2>
+                <p>Download the complete resume or review education, experience, and achievements online.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                {% if resume and resume.resume_file %}
+                <a href="{{ resume.resume_file.url }}" class="btn btn-primary btn-lg" download>Download Resume</a>
+                {% endif %}
+            </div>
+        </div>
+        {% if resume %}
+        <div class="row gy-4">
+            <div class="col-lg-6">
+                <div class="card p-4 shadow-sm">
+                    <h4>Education</h4>
+                    <p>{{ resume.education|linebreaks }}</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card p-4 shadow-sm">
+                    <h4>Experience</h4>
+                    <p>{{ resume.experience|linebreaks }}</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card p-4 shadow-sm">
+                    <h4>Skills</h4>
+                    <p>{{ resume.skills }}</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card p-4 shadow-sm">
+                    <h4>Achievements</h4>
+                    <p>{{ resume.achievements|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p>No resume data has been added yet.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

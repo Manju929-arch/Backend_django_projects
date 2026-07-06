@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>list of records</h1>
+        {% for i in student_list %}
+        <a href="/{{i.id}}/">{{i.name}}'s details</a> <br> <br>
+        {% endfor %}
+    </center>
+</body>
+</html>

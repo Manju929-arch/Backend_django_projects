@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Student data base</h1>
+        <table border="2px">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Place</th>
+                <th>Update operation</th>
+                <th>Delet operation</th>
+            </tr>
+            {% for i in stud %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.age}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.place}}</td>
+                <td><a href="/update/{{i.id}}/">Update</a></td>
+                <th><a href="/delete/{{i.id}}/">Delete</a></th>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/insert/">Do you want to insert a new record???</a>
+    </center>
+    
+</body>
+</html>

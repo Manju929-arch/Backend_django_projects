@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>{{name}}'s Favourites ....</h1>
+        <div>
+            <h2>Favourite Animal:{{animal}}</h2>
+            <h2><a href="https://en.wikipedia.org/wiki/Rabbit">click here</a></h2>
+            <h2><img src="{% static 'image/rabbit.jpg '%}" alt=""></h2>
+        </div>
+        <div>
+            <h2>Favourite Bird:{{bird}}</h2>
+            <h2><a href="https://en.wikipedia.org/wiki/Rabbit">click here</a></h2>
+            <h2><img src="{% static 'image/parrot.jpg '%}" alt=""></h2>
+        </div>
+    </center>
+</body>
+</html>
